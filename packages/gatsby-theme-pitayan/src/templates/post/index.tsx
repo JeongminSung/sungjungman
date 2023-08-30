@@ -19,14 +19,16 @@ import TableOfContents from "@pitayan/gatsby-theme-pitayan/src/components/TableO
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 import { SOCIAL_RESOURCES } from "@pitayan/gatsby-theme-pitayan/src/constants"
 import { Author } from "@pitayan/gatsby-theme-pitayan/src/pages/authors"
-import PostsGroup, { PostNode } from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
+import PostsGroup, {
+  PostNode,
+} from "@pitayan/gatsby-theme-pitayan/src/components/PostsGroup"
 
 type PostProps = {
   data: {
     mdx: {
       body: string
       tableOfContents: {
-        items: {url: string; title: string}[]
+        items: { url: string; title: string }[]
       }
       frontmatter: {
         author: Author[]
@@ -45,7 +47,7 @@ type PostProps = {
       timeToRead: number
       relatedPosts: PostNode[]
     }
-  },
+  }
   pageContext: {
     previous: {
       title: string
@@ -83,11 +85,7 @@ const Post: React.FC<PostProps> = ({
       relatedPosts,
     },
   },
-  pageContext: {
-    tableOfContentsLevels,
-    previous,
-    next
-  },
+  pageContext: { tableOfContentsLevels, previous, next },
   children,
 }) => {
   const articleRef = useRef<HTMLElement | null>(null)
@@ -135,7 +133,11 @@ const Post: React.FC<PostProps> = ({
 
       <div className="max-w-lg md:max-w-2xl mx-auto mb-24">
         <h1 className="text-center">{title}</h1>
-        <PostMeta className="block mb-4 text-center" date={date} timeToRead={timeToRead} />
+        <PostMeta
+          className="block mb-4 text-center"
+          date={date}
+          timeToRead={timeToRead}
+        />
 
         <div className="block sm:flex flex-wrap items-center justify-center sm:justify-between">
           <PostAuthors data={coAuthors} />
@@ -171,10 +173,11 @@ const Post: React.FC<PostProps> = ({
           pocket
           copy
         />
-        <article className="markdown lg:col-start-3 lg:col-end-8" ref={articleRef}>
-          <MDXProvider components={{}}>
-            {children}
-          </MDXProvider>
+        <article
+          className="markdown lg:col-start-3 lg:col-end-8"
+          ref={articleRef}
+        >
+          <MDXProvider components={{}}>{children}</MDXProvider>
         </article>
         <TableOfContents
           className="hidden lg:block lg:col-span-2 mt-12 top-[2rem] sticky self-start text-xs font-semibold ml-12 mr-auto mb-6 overflow-y-auto max-h-full"
@@ -186,7 +189,10 @@ const Post: React.FC<PostProps> = ({
 
       <div className="my-8 max-w-lg md:max-w-2xl mx-auto">
         <div className="block sm:flex flex-wrap items-center justify-center sm:justify-between">
-          <CategoryTags className="my-8 justify-center" categories={categories} />
+          <CategoryTags
+            className="my-8 justify-center"
+            categories={categories}
+          />
           <SocialSharing
             url={url}
             title={title}
@@ -249,7 +255,7 @@ const Post: React.FC<PostProps> = ({
 }
 
 export const pageQuery = graphql`
-  query ($slug: String!) {
+  query($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
       timeToRead
@@ -264,11 +270,7 @@ export const pageQuery = graphql`
           sns
           avatar {
             normal: childImageSharp {
-              gatsbyImageData(
-                width: 128
-                placeholder: BLURRED
-                formats: [AUTO]
-              )
+              gatsbyImageData(width: 128, placeholder: BLURRED, formats: [AUTO])
             }
           }
         }
@@ -302,11 +304,7 @@ export const pageQuery = graphql`
           categories
           hero {
             normal: childImageSharp {
-              gatsbyImageData(
-                width: 768
-                placeholder: BLURRED
-                formats: [AUTO]
-              )
+              gatsbyImageData(width: 768, placeholder: BLURRED, formats: [AUTO])
             }
           }
           description

@@ -49,23 +49,8 @@ export default memo(HomePage)
 export const pageQuery = graphql`
   query HomePageQuery {
     allMdx(
-      filter: {
-        internal: {
-          contentFilePath: { regex: "/content/posts/" }
-        }
-      }
-      sort: [
-        {
-          frontmatter: {
-            date: DESC
-          }
-        },
-        {
-          frontmatter: {
-            title: DESC
-          }
-        }
-      ]
+      filter: { internal: { contentFilePath: { regex: "/content/posts/" } } }
+      sort: [{ frontmatter: { date: DESC } }, { frontmatter: { title: DESC } }]
       limit: 12
     ) {
       nodes {
@@ -80,11 +65,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM Do, YYYY")
           hero {
             normal: childImageSharp {
-              gatsbyImageData(
-                width: 768
-                placeholder: BLURRED
-                formats: [AUTO]
-              )
+              gatsbyImageData(width: 768, placeholder: BLURRED, formats: [AUTO])
             }
           }
           description

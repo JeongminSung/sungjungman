@@ -3,8 +3,7 @@ import { checkIfDarkMode } from "./toggleTheme"
 
 let zoom: Zoom
 export const setZoomableImages = (): void => {
-  const query =
-    "img.gatsby-resp-image-image, .gatsby-resp-image-image img"
+  const query = "img.gatsby-resp-image-image, .gatsby-resp-image-image img"
 
   const timer = setTimeout(() => {
     if (zoom) {

@@ -8,9 +8,7 @@ type TopNavProps = {
   className?: string
 }
 
-const TopNav: React.FC<TopNavProps> = ({
-  className = "",
-}) => {
+const TopNav: React.FC<TopNavProps> = ({ className = "" }) => {
   const { name, title, icon } = useSiteMetadata()
 
   return (

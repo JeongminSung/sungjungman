@@ -79,6 +79,7 @@ $ yarn add gatsby @pitayan/gatsby-theme-pitayan react@18 react-dom@18
 ## Project Setup
 
 ### Folder Structure
+
 The necessary project folder structure looks like this. Make sure you've created all of them. For now, the folder paths are not configurable.
 
 ```
@@ -175,16 +176,16 @@ Example
 
 This step is very essential before you get started with official blogging. All of the items in the table below are _required_.
 
-| Item                | Description                                                                                                                   |
-| ------------------- | :---------------------------------------------------------------------------------------------------------------------------- |
-| title               | Your site title. This will be used as image alt                                                                               |
-| name                | Your site name. This will be displayed in the top navigation bar beside the logo                                              |
-| description         | Your site's description for SEO purposes                                                                                      |
-| siteUrl             | Your site's official URL                                                                                                      |
-| siteSlogan          | The slogan to be displayed on the home page                                                                                   |
-| siteLinks           | A list of links to be displayed on the home links section or bottom footer                                                    |
-| siteCookieConsent   | Containing properties of `title` & `description` & `readMore` for customizing the content of cookie consent prompt component  |
-| siteSubscription    | Containing properties of `title` & `description` for customizing the content of the subscription component                    |
+| Item              | Description                                                                                                                  |
+| ----------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| title             | Your site title. This will be used as image alt                                                                              |
+| name              | Your site name. This will be displayed in the top navigation bar beside the logo                                             |
+| description       | Your site's description for SEO purposes                                                                                     |
+| siteUrl           | Your site's official URL                                                                                                     |
+| siteSlogan        | The slogan to be displayed on the home page                                                                                  |
+| siteLinks         | A list of links to be displayed on the home links section or bottom footer                                                   |
+| siteCookieConsent | Containing properties of `title` & `description` & `readMore` for customizing the content of cookie consent prompt component |
+| siteSubscription  | Containing properties of `title` & `description` for customizing the content of the subscription component                   |
 
 Example
 
@@ -317,6 +318,7 @@ description: Just a post page that displays demo components
 hero: images/demo_1.jpg
 slug: posts/gatsby-plugin-options
 ---
+
 ```
 
 ## Adding Site Pages
@@ -416,7 +418,6 @@ This theme introduces some custom events to allow 3rd party scripts (or your own
 | CUSTOM_EVENT_SUBSCRIPTION   | { email: string }                                      | Occurs when a user successfully subscribed to newsletters |
 | CUSTOM_EVENT_TOGGLE_THEME   | { theme: 'dark' \| light' }                            | Occurs when a user changes the theme dark <-> light       |
 | CUSTOM_EVENT_SOCIAL_SHARING | { sns: 'Twitter' \| 'Facebook' \| 'Pocket' \| 'copy' } | Occurs when a user shares to SNS / copes the post URL     |
-
 
 ## Browser Support
 

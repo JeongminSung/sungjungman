@@ -1,4 +1,7 @@
-import { setZoomableImages, smoothAnchorScroll, } from "@pitayan/gatsby-theme-pitayan/src/utils"
+import {
+  setZoomableImages,
+  smoothAnchorScroll,
+} from "@pitayan/gatsby-theme-pitayan/src/utils"
 
 export function onRouteUpdate() {
   // Set gatsby responsive images to zoomable images

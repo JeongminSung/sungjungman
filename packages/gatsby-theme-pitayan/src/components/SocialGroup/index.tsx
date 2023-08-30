@@ -20,7 +20,9 @@ const SocialIcon: React.FC<SocialIconsProps> = ({ icon, className = "" }) => {
 
 const SocialGroup: React.FC<SocialGroupProps> = ({ data, className = "" }) => {
   return (
-    <ul className={`list-none grid grid-flow-col-dense auto-cols-auto ${className}`}>
+    <ul
+      className={`list-none grid grid-flow-col-dense auto-cols-auto ${className}`}
+    >
       {data.map(([sns, profile]) => {
         let href = `${SOCIAL_RESOURCES[sns]?.url}/${profile}`
 

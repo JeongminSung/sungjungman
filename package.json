@@ -4,6 +4,7 @@
     "url": "https://github.com/Pitayan/gatsby-theme-pitayan/issues"
   },
   "type": "module",
+  "private": true,
   "description": "A blog theme for Gatsby",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.33.0",
@@ -34,7 +35,9 @@
   "scripts": {
     "build": "npm -w packages/gatsby-theme-pitayan gatsby build",
     "gh-pages": "gh-pages -d packages/www/public",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "develop": "workspace www run develop",
+    "lint": "eslint . --cache --fix --ext .js,.jsx,.ts,.tsx"
   },
   "version": "0.1.0",
   "workspaces": [

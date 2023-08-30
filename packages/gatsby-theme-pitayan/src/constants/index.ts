@@ -1,8 +1,4 @@
-import {
-  SiNotion,
-  SiBuymeacoffee,
-  SiDevdotto,
-} from "react-icons/si"
+import { SiNotion, SiBuymeacoffee, SiDevdotto } from "react-icons/si"
 import {
   RiUnsplashFill,
   RiMailFill,
@@ -20,14 +16,13 @@ import {
   RiPatreonFill,
   RiExternalLinkFill,
 } from "react-icons/ri"
-import {
-  FaTripadvisor,
-  FaGetPocket,
-  FaDigitalOcean,
-} from "react-icons/fa"
+import { FaTripadvisor, FaGetPocket, FaDigitalOcean } from "react-icons/fa"
 import { IconType } from "react-icons/lib"
 
-export const SOCIAL_RESOURCES: Record<string, { icon: IconType, url: string }> = {
+export const SOCIAL_RESOURCES: Record<
+  string,
+  { icon: IconType; url: string }
+> = {
   behance: {
     icon: RiBehanceFill,
     url: "https://www.behance.net",
@@ -113,7 +108,6 @@ export const SOCIAL_RESOURCES: Record<string, { icon: IconType, url: string }> =
     url: "",
   },
 }
-
 
 export const COOKIE_PROMPT_CONTAINER_ID = "cookie-prompt-container"
 export const COOKIE_PROMPT_AGREEMENT = "site-cookie-consent-agreement"

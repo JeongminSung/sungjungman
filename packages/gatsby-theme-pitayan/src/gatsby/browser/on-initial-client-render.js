@@ -1,6 +1,9 @@
 // Polyfill smooth scroll
 import smoothscroll from "smoothscroll-polyfill"
-import { smoothAnchorScroll, setZoomableImages } from "@pitayan/gatsby-theme-pitayan/src/utils"
+import {
+  smoothAnchorScroll,
+  setZoomableImages,
+} from "@pitayan/gatsby-theme-pitayan/src/utils"
 import { CUSTOM_EVENT_TOGGLE_THEME } from "@pitayan/gatsby-theme-pitayan/src/constants"
 
 export function onInitialClientRender() {

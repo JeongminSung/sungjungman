@@ -88,7 +88,7 @@ export const breadcrumbsListSchema = ({
     name: "Breadcrumbs",
     "@id": `${siteUrl}/#breadcrumb`,
     get itemListElement() {
-      let list = [
+      const list = [
         {
           "@type": "ListItem",
           position: "1",

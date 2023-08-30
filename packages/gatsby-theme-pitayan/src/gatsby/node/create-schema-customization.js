@@ -16,8 +16,5 @@ module.exports = function createSchemaCustomization({ actions }) {
     }
   `
 
-  createTypes([
-    AuthorTypeDefs,
-    TimeToRead,
-  ])
+  createTypes([AuthorTypeDefs, TimeToRead])
 }

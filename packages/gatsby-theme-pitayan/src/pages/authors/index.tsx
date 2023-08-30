@@ -41,20 +41,18 @@ const Authors: React.FC<AuthorsProps> = ({
         Authors ({authors.length})
       </h1>
       <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto mb-32">
-        {authors.map(
-          ({ name, initial, yamlId, avatar, sns, bio }) => (
-            <AuthorCard
-              className="p-8 bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded"
-              key={yamlId}
-              bio={bio}
-              name={name}
-              initial={initial}
-              avatar={avatar}
-              sns={sns}
-              yamlId={yamlId}
-            />
-          )
-        )}
+        {authors.map(({ name, initial, yamlId, avatar, sns, bio }) => (
+          <AuthorCard
+            className="p-8 bg-gray-50 border border-solid border-gray-100 dark:bg-gray-800 dark:border-gray-800 rounded"
+            key={yamlId}
+            bio={bio}
+            name={name}
+            initial={initial}
+            avatar={avatar}
+            sns={sns}
+            yamlId={yamlId}
+          />
+        ))}
       </div>
     </DefaultLayout>
   )
@@ -74,11 +72,7 @@ export const pageQuery = graphql`
         initial
         avatar {
           normal: childImageSharp {
-            gatsbyImageData(
-              width: 480
-              placeholder: BLURRED
-              formats: [AUTO]
-            )
+            gatsbyImageData(width: 480, placeholder: BLURRED, formats: [AUTO])
           }
         }
       }

@@ -8,7 +8,7 @@ type CategoryTagsProps = {
 
 const CategoryTags: React.FC<CategoryTagsProps> = ({
   categories,
-  className
+  className,
 }) => {
   if (!categories || !categories.length) return <></>
 
@@ -16,7 +16,11 @@ const CategoryTags: React.FC<CategoryTagsProps> = ({
     <div className={`flex flex-wrap gap-3 ${className}`}>
       {categories.map((category: string, key: number) => {
         return (
-          <Link className="site-tag block" key={key} to={`/categories/${category}`}>
+          <Link
+            className="site-tag block"
+            key={key}
+            to={`/categories/${category}`}
+          >
             {category}
           </Link>
         )

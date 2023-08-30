@@ -7,9 +7,7 @@ type BottomFooterProps = {
   className?: string
 }
 
-const BottomFooter: React.FC<BottomFooterProps> = ({
-  className = "",
-}) => {
+const BottomFooter: React.FC<BottomFooterProps> = ({ className = "" }) => {
   const year = new Date().getFullYear()
   const { siteLinks, name, siteDescription } = useSiteMetadata()
 

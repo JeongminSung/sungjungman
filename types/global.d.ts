@@ -3,5 +3,5 @@ declare module "*.svg" {
   export default content
 }
 
-declare var __MAILCHIMP_ENDPOINT__: string
-declare var __MAILCHIMP_TIMEOUT__: number
+declare let __MAILCHIMP_ENDPOINT__: string
+declare let __MAILCHIMP_TIMEOUT__: number

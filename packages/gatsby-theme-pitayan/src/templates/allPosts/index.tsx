@@ -51,16 +51,8 @@ export default PostsPage
 export const PageQuery = graphql`
   query PostsPageQuery($skip: Int!, $limit: Int!) {
     allMdx(
-      filter: {
-        internal: {
-          contentFilePath: { regex: "/content/posts/" }
-        }
-      }
-      sort: {
-        frontmatter: {
-          date: DESC
-        }
-      }
+      filter: { internal: { contentFilePath: { regex: "/content/posts/" } } }
+      sort: { frontmatter: { date: DESC } }
       limit: $limit
       skip: $skip
     ) {
@@ -83,11 +75,7 @@ export const PageQuery = graphql`
           categories
           hero {
             normal: childImageSharp {
-              gatsbyImageData(
-                width: 768
-                placeholder: BLURRED
-                formats: [AUTO]
-              )
+              gatsbyImageData(width: 768, placeholder: BLURRED, formats: [AUTO])
             }
           }
           description

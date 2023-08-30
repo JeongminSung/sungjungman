@@ -12,11 +12,7 @@ module.exports = async function createPages(
   return graphql(`
     query {
       site: allMdx(
-        filter: {
-          internal: {
-            contentFilePath: { regex: "/content/site/" }
-          }
-        }
+        filter: { internal: { contentFilePath: { regex: "/content/site/" } } }
         limit: 2000
       ) {
         nodes {
@@ -29,22 +25,10 @@ module.exports = async function createPages(
         }
       }
       posts: allMdx(
-        filter: {
-          internal: {
-            contentFilePath: { regex: "/content/posts/" }
-          }
-        }
+        filter: { internal: { contentFilePath: { regex: "/content/posts/" } } }
         sort: [
-          {
-            frontmatter: {
-              date: DESC
-            }
-          },
-          {
-            frontmatter: {
-              title: DESC
-            }
-          }
+          { frontmatter: { date: DESC } }
+          { frontmatter: { title: DESC } }
         ]
         limit: 2000
       ) {
@@ -61,23 +45,13 @@ module.exports = async function createPages(
         }
       }
       authors: allMdx(limit: 2000) {
-        group(field: {
-          frontmatter: {
-            author: {
-              yamlId: SELECT
-            }
-          }
-        }) {
+        group(field: { frontmatter: { author: { yamlId: SELECT } } }) {
           fieldValue
           totalCount
         }
       }
       categories: allMdx(limit: 2000) {
-        group(field: {
-          frontmatter: {
-            categories: SELECT
-          }
-        }) {
+        group(field: { frontmatter: { categories: SELECT } }) {
           fieldValue
           totalCount
         }
@@ -91,7 +65,10 @@ module.exports = async function createPages(
 
     // Create site page
     result.data.site.nodes.forEach(node => {
-      const component = path.resolve(projectRoot, `./src/templates/site/index.tsx`)
+      const component = path.resolve(
+        projectRoot,
+        `./src/templates/site/index.tsx`
+      )
       createPage({
         path: node.fields.slug,
         component: `${component}?__contentFilePath=${node.internal.contentFilePath}`,
@@ -105,10 +82,14 @@ module.exports = async function createPages(
 
     // Create post page
     // FIXME: path prefix -> as an argument?
-    let previousPost = result.data.posts.nodes[result.data.posts.nodes.length - 1]
+    let previousPost =
+      result.data.posts.nodes[result.data.posts.nodes.length - 1]
     let nextPost = result.data.posts.nodes[1]
     result.data.posts.nodes.forEach((node, key) => {
-      const component = path.resolve(projectRoot, `./src/templates/post/index.tsx`)
+      const component = path.resolve(
+        projectRoot,
+        `./src/templates/post/index.tsx`
+      )
 
       createPage({
         path: node.fields.slug,
@@ -123,15 +104,16 @@ module.exports = async function createPages(
           next: {
             title: nextPost.frontmatter.title,
             slug: nextPost.fields.slug,
-          }
+          },
         },
       })
 
       previousPost = node
 
-      nextPost = key + 2 >  result.data.posts.nodes.length - 1
-        ? result.data.posts.nodes[0]
-        : result.data.posts.nodes[key + 2]
+      nextPost =
+        key + 2 > result.data.posts.nodes.length - 1
+          ? result.data.posts.nodes[0]
+          : result.data.posts.nodes[key + 2]
     })
 
     // Create paginated post list page

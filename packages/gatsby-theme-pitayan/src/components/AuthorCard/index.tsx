@@ -30,16 +30,20 @@ const AuthorCard: React.FC<AuthorCardProps> = ({
   return (
     <div className={`${className} flex flex-wrap space-x-0 sm:space-x-8`}>
       <div className="w-full sm:w-auto text-center">
-        <Avatar className={`mb-4 ${avatarClassName}`} initial={initial} image={image} />
+        <Avatar
+          className={`mb-4 ${avatarClassName}`}
+          initial={initial}
+          image={image}
+        />
       </div>
       <div className="flex flex-col items-stretch justify-between flex-1 text-center sm:text-left">
         <h3 className="leading-tight md:leading-tight">
           {name}
-          {yamlId &&
+          {yamlId && (
             <Link to={`/authors/@${yamlId}`} className="site-link mx-2">
               <small>@{yamlId}</small>
             </Link>
-          }
+          )}
         </h3>
         <p className="text-base">{bio}</p>
         <SocialGroup className="max-w-lg text-xl my-0" data={sns} />

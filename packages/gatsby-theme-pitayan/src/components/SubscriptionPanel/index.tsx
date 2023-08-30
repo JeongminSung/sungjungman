@@ -3,9 +3,12 @@ import React, { memo, useState } from "react"
 import {
   CUSTOM_EVENT_SUBSCRIPTION,
   SUBSCRIPTION_DEFAULT_DESCRIPTION,
-  SUBSCRIPTION_DEFAULT_TITLE
+  SUBSCRIPTION_DEFAULT_TITLE,
 } from "@pitayan/gatsby-theme-pitayan/src/constants"
-import { dispatchCustomEvent, subscribeMailChimp } from "@pitayan/gatsby-theme-pitayan/src/utils"
+import {
+  dispatchCustomEvent,
+  subscribeMailChimp,
+} from "@pitayan/gatsby-theme-pitayan/src/utils"
 import { useSiteMetadata } from "@pitayan/gatsby-theme-pitayan/src/hooks"
 
 type SubscriptionPanelProps = {
@@ -15,7 +18,9 @@ type SubscriptionPanelProps = {
 const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
   className = "",
 }) => {
-  const { siteSubscription: { title, description } } = useSiteMetadata()
+  const {
+    siteSubscription: { title, description },
+  } = useSiteMetadata()
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
   const [subscribed, setSubscribed] = useState(false)
@@ -55,10 +60,10 @@ const SubscriptionPanel: React.FC<SubscriptionPanelProps> = ({
     <div className={`subscription ${className}`}>
       <div className="subscription-container">
         <h3 className="subscription-title">
-          { title || SUBSCRIPTION_DEFAULT_TITLE }
+          {title || SUBSCRIPTION_DEFAULT_TITLE}
         </h3>
         <div className="subscription-content">
-          { description || SUBSCRIPTION_DEFAULT_DESCRIPTION }
+          {description || SUBSCRIPTION_DEFAULT_DESCRIPTION}
         </div>
         <form className="subscription-action" onSubmit={handleOnSubmit}>
           <div className="w-full relative max-w-lg mx-auto">

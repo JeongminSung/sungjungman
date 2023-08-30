@@ -54,18 +54,12 @@ const CategoryPosts: React.FC<CategoryPostsProps> = ({
 export default CategoryPosts
 
 export const pageQuery = graphql`
-  query ($limit: Int!, $skip: Int!, $category: String!) {
+  query($limit: Int!, $skip: Int!, $category: String!) {
     allMdx(
-      sort: {
-        frontmatter: {
-          date: DESC
-        }
-      }
+      sort: { frontmatter: { date: DESC } }
       filter: {
         frontmatter: { categories: { in: [$category] } }
-        internal: {
-          contentFilePath: { regex: "/content/posts/" }
-        }
+        internal: { contentFilePath: { regex: "/content/posts/" } }
       }
       limit: $limit
       skip: $skip
@@ -89,11 +83,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM Do, YYYY")
           hero {
             normal: childImageSharp {
-              gatsbyImageData(
-                width: 768
-                placeholder: BLURRED
-                formats: [AUTO]
-              )
+              gatsbyImageData(width: 768, placeholder: BLURRED, formats: [AUTO])
             }
           }
           description

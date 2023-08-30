@@ -1,5 +1,5 @@
 import { dispatchCustomEvent } from "./customEvent"
-import { CUSTOM_EVENT_TOGGLE_THEME } from '@pitayan/gatsby-theme-pitayan/src/constants'
+import { CUSTOM_EVENT_TOGGLE_THEME } from "@pitayan/gatsby-theme-pitayan/src/constants"
 
 export const checkIfDarkMode = (): boolean => {
   if (typeof window !== "undefined") {

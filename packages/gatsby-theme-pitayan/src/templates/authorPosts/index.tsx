@@ -62,18 +62,12 @@ const AuthorPosts: React.FC<AuthorPostsProps> = ({
 export default AuthorPosts
 
 export const pageQuery = graphql`
-  query ($limit: Int!, $skip: Int!, $authorId: String!) {
+  query($limit: Int!, $skip: Int!, $authorId: String!) {
     allMdx(
-      sort: {
-        frontmatter: {
-          date: DESC
-        }
-      }
+      sort: { frontmatter: { date: DESC } }
       filter: {
         frontmatter: { author: { elemMatch: { yamlId: { in: [$authorId] } } } }
-        internal: {
-          contentFilePath: { regex: "/content/posts/" }
-        }
+        internal: { contentFilePath: { regex: "/content/posts/" } }
       }
       limit: $limit
       skip: $skip
@@ -96,11 +90,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM Do, YYYY")
           hero {
             normal: childImageSharp {
-              gatsbyImageData(
-                width: 768
-                placeholder: BLURRED
-                formats: [AUTO]
-              )
+              gatsbyImageData(width: 768, placeholder: BLURRED, formats: [AUTO])
             }
           }
           description
@@ -116,11 +106,7 @@ export const pageQuery = graphql`
       joined
       avatar {
         normal: childImageSharp {
-          gatsbyImageData(
-            width: 480
-            placeholder: BLURRED
-            formats: [AUTO]
-          )
+          gatsbyImageData(width: 480, placeholder: BLURRED, formats: [AUTO])
         }
       }
       sns

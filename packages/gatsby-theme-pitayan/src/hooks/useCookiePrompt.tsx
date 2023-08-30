@@ -16,11 +16,14 @@ type NotificationProps = {
 }
 
 export const Notification: React.FC<NotificationProps> = () => {
-  const { siteCookieConsent: { title, description, readMore }, siteLinks } = useSiteMetadata()
+  const {
+    siteCookieConsent: { title, description, readMore },
+    siteLinks,
+  } = useSiteMetadata()
   const [isOpen, setIsOpen] = useState(false)
 
-  const privacyLink = siteLinks.find((s) => s.name.match(/privac(y|ies)/))
-  const termsLink = siteLinks.find((s) => s.name.match(/term(s?)/))
+  const privacyLink = siteLinks.find(s => s.name.match(/privac(y|ies)/))
+  const termsLink = siteLinks.find(s => s.name.match(/term(s?)/))
 
   const handleAgree = () => {
     if (window.localStorage.getItem(COOKIE_PROMPT_AGREEMENT)) {
@@ -43,17 +46,27 @@ export const Notification: React.FC<NotificationProps> = () => {
   return (
     <div className="notification notification-bottom-left rounded">
       <div className={`notification-container ${isOpen ? "open" : ""}`}>
-        <h4 className="notification-title">{ title || COOKIE_PROMPT_DEFAULT_TITLE }</h4>
+        <h4 className="notification-title">
+          {title || COOKIE_PROMPT_DEFAULT_TITLE}
+        </h4>
         <p className="mb-2 text-sm">
-          { description || COOKIE_PROMPT_DEFAULT_DESCRIPTION }
+          {description || COOKIE_PROMPT_DEFAULT_DESCRIPTION}
         </p>
-        {(privacyLink || termsLink) &&
+        {(privacyLink || termsLink) && (
           <p className="mb-2 text-sm flex space-x-2">
-            <span>{ readMore || COOKIE_PROMPT_DEFAULT_READMORE }</span>
-            {privacyLink && <Link className="site-link underline" to={privacyLink.url}>{privacyLink.name}</Link>}
-            {termsLink && <Link className="site-link underline" to={termsLink.url}>{termsLink.name}</Link>}
+            <span>{readMore || COOKIE_PROMPT_DEFAULT_READMORE}</span>
+            {privacyLink && (
+              <Link className="site-link underline" to={privacyLink.url}>
+                {privacyLink.name}
+              </Link>
+            )}
+            {termsLink && (
+              <Link className="site-link underline" to={termsLink.url}>
+                {termsLink.name}
+              </Link>
+            )}
           </p>
-        }
+        )}
         <div className="text-right font-bold">
           <button className="ghost-button" onClick={handleAgree}>
             Agree

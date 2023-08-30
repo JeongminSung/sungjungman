@@ -34,7 +34,10 @@ const CategoriesPage: React.FC<CategoriesProps> = ({
       <h1 className="font-bold font-sans leading-tight md:leading-tight md:text-3xl text-2xl text-center mb-32">
         Categories ({group.length})
       </h1>
-      <CategoryTags className="mx-auto mb-32 max-w-lg justify-center" categories={categories} />
+      <CategoryTags
+        className="mx-auto mb-32 max-w-lg justify-center"
+        categories={categories}
+      />
     </DefaultLayout>
   )
 }
@@ -44,11 +47,7 @@ export default memo(CategoriesPage)
 export const pageQuery = graphql`
   query {
     allMdx(limit: 2000) {
-      group(field: {
-        frontmatter: {
-          categories: SELECT
-        }
-      }) {
+      group(field: { frontmatter: { categories: SELECT } }) {
         fieldValue
         totalCount
       }

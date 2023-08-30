@@ -2,8 +2,7 @@ import jsonp from "jsonp"
 
 // Refers to
 // https://github.com/manishsaraan/email-validator/blob/master/index.js
-const _tester =
-  /^[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/
+const _tester = /^[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/
 export const validateEmail = (input: string): boolean => {
   if (!input) return false
 
@@ -36,7 +35,7 @@ export const validateEmail = (input: string): boolean => {
   return true
 }
 
-export const jsonpPromise = (url: string, timeout: number = 300) =>
+export const jsonpPromise = (url: string, timeout = 300) =>
   new Promise((resolve, reject) =>
     jsonp(url, { param: "c", timeout }, (err, data) => {
       if (err) reject(err)

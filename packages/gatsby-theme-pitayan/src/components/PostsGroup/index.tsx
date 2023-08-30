@@ -24,10 +24,7 @@ type PostsProps = {
   className?: string
 }
 
-const PostsGroup: React.FC<PostsProps> = ({
-  posts,
-  className = "",
-}) => {
+const PostsGroup: React.FC<PostsProps> = ({ posts, className = "" }) => {
   return (
     <div className={className}>
       {posts.map(

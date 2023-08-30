@@ -68,16 +68,14 @@ const Site: React.FC<SiteProps> = ({
       )}
 
       <article className="markdown">
-        <MDXProvider components={{}}>
-          {children}
-        </MDXProvider>
+        <MDXProvider components={{}}>{children}</MDXProvider>
       </article>
     </DefaultLayout>
   )
 }
 
 export const pageQuery = graphql`
-  query ($slug: String!) {
+  query($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
       frontmatter {
