@@ -1,0 +1,14 @@
+- id: ted
+  name: Tide Dai
+  initial: TD
+  bio: A "DX" first developer
+  joined: June 2020
+  avatar: ./avatars/ted.jpg
+  sns:
+    - [stackoverflow, 7831025/daiyanze]
+    - [facebook, yanze.dai]
+    - [twitter, daiyanze]
+    - [github, daiyanze]
+    - [medium, "@daiyanze"]
+    - [mailto, mailto:ginoalex8964@yahoo.com]
+    - [url, https://daiyanze.com]

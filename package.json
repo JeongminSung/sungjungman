@@ -1,0 +1,43 @@
+{
+  "author": "Yanze Dai <ginoalex8964@yahoo.com> (https://daiyanze.com)",
+  "bugs": {
+    "url": "https://github.com/Pitayan/gatsby-theme-pitayan/issues"
+  },
+  "type": "module",
+  "description": "A blog theme for Gatsby",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-webpack-plugin": "^3.1.1",
+    "gh-pages": "^4.0.0",
+    "prettier": "2.2.1",
+    "typescript": "^4.3.5"
+  },
+  "homepage": "https://github.com/Pitayan/gatsby-theme-pitayan",
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "gatsby-theme-pitayan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pitayan/gatsby-theme-pitayan"
+  },
+  "scripts": {
+    "build": "npm -w packages/gatsby-theme-pitayan gatsby build",
+    "gh-pages": "gh-pages -d packages/www/public",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+  },
+  "version": "0.1.0",
+  "workspaces": [
+    "packages/*"
+  ]
+}
